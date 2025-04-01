@@ -22,8 +22,15 @@ namespace SortingTest
         [Fact]
         public void GivenUnsortedList_WhenInsertionSortIsCalled_ThenListIsSorted()
         {
-            List<int> bubbleSortedList = Sorting.Sorting.BubbleSort(list);
-            Assert.Equal(sortedList, bubbleSortedList);
+            List<int> insertionSortedList = Sorting.Sorting.BubbleSort(list);
+            Assert.Equal(sortedList, insertionSortedList);
+        }
+
+        [Fact]
+        public void GivenUnsortedList_WhenMergeSortIsCalled_ThenListIsSorted()
+        {
+            List<int> mergeSortedList = Sorting.Sorting.MergeSort(list);
+            Assert.Equal(sortedList, mergeSortedList);
         }
     }
 }

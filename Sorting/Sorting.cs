@@ -24,7 +24,6 @@ namespace Sorting
 
             return list;
         }
-
         public static List<int> InsertionSort(List<int> list)
         {
             int key, j;
@@ -43,6 +42,66 @@ namespace Sorting
             }
 
             return list;
+        }
+
+        public static List<int> MergeSort(List<int> list)
+        {
+            if(list.Count <= 1)
+            {
+                return list;
+            }
+
+            List<int> left = new List<int>();
+            List<int> right = new List<int>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list.Count / 2 > i)
+                {
+                    left.Add(list[i]);
+                }
+                else
+                {
+                    right.Add(list[i]);
+                }
+            }
+
+            left = MergeSort(left);
+            right = MergeSort(right);
+
+            return Merge(left, right);
+        }
+
+        private static List<int> Merge(List<int> left, List<int> right)
+        {
+            List<int> result = new List<int>();
+            while (left.Count > 0 || right.Count > 0)
+            {
+                if (left.Count > 0 && right.Count > 0)
+                {
+                    if (left[0] <= right[0])
+                    {
+                        result.Add(left[0]);
+                        left.RemoveAt(0);
+                    }
+                    else
+                    {
+                        result.Add(right[0]);
+                        right.RemoveAt(0);
+                    }
+                }
+                else if (left.Count > 0)
+                {
+                    result.Add(left[0]);
+                    left.RemoveAt(0);
+                }
+                else if (right.Count > 0)
+                {
+                    result.Add(right[0]);
+                    right.RemoveAt(0);
+                }
+            }
+            return result;
         }
     }
 }
