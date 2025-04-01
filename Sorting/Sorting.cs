@@ -24,5 +24,25 @@ namespace Sorting
 
             return list;
         }
+
+        public static List<int> InsertionSort(List<int> list)
+        {
+            int key, j;
+            for (int i = 2; i < list.Count; i++) 
+            {
+                key = list[i];
+                j = i - 1;
+
+                while (j >= 0 && list[j] > key)
+                {
+                    list[j + 1] = list[j];
+                    j = j - 1;
+                }
+
+                list[j + 1] = key;
+            }
+
+            return list;
+        }
     }
 }

@@ -18,5 +18,12 @@ namespace SortingTest
             List<int> bubbleSortedList = Sorting.Sorting.BubbleSort(list);
             Assert.Equal(sortedList, bubbleSortedList);
         }
+
+        [Fact]
+        public void GivenUnsortedList_WhenInsertionSortIsCalled_ThenListIsSorted()
+        {
+            List<int> bubbleSortedList = Sorting.Sorting.BubbleSort(list);
+            Assert.Equal(sortedList, bubbleSortedList);
+        }
     }
 }
